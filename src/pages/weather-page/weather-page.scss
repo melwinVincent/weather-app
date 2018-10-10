@@ -1,3 +1,35 @@
 page-weather-page {
-
+    .wa-parent-segment {
+        .segment-button {
+            &.segment-activated {
+                background: color($colors, primary, base);
+                color: color($colors, light, base);
+            }
+        }  
+    }
+    .wa-city {
+        color: color($colors, primary, base);
+        padding: 16px 8px 0px 8px;
+        font-size: 24px;
+    }
+    .wa-weather-wrapper {
+        .wa-icon{
+            display: inline-block;
+            width: 48px;
+            vertical-align: middle;
+        }
+        .wa-desc{
+            display: inline-block;
+            vertical-align: middle;
+            font-size: 16px;
+            text-transform: capitalize;
+            color: color($colors, color-III, base);
+        }
+    }
+    .wa-day-wrapper {
+        padding: 4px 8px;
+        font-size: 18px;
+        color: color($colors, color-I, base);
+    }
+    
 }

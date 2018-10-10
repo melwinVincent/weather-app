@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { IonicPage } from 'ionic-angular';
 import { WeatherAppService } from '../../services/weather.app.services';
 import * as HighCharts from 'highcharts';
-
+import { APP_CONFIG } from '../../app/app.config';
 @IonicPage()
 @Component({
   selector: 'page-weather-page',
@@ -11,6 +11,8 @@ import * as HighCharts from 'highcharts';
 export class WeatherPage {
   // used for segment title
   daySelected : string;
+  segments : string[];
+  segmentSelected : string;
   // multi-dimensonal array to manage the data in each segment
   days : any;
   // for high charts
@@ -18,6 +20,8 @@ export class WeatherPage {
   // to store the return data from the weather map api
   data : any;
   constructor(private weatherAppService: WeatherAppService) {
+    this.segments = ["Temperature", "Wind", "Pressue", "Humidity"];
+    this.segmentSelected = "Temperature";
   }
   // format the date into day for better UX
   formatDate(date){
@@ -26,6 +30,20 @@ export class WeatherPage {
 
   formatTime(time) {
     return time.substr(0,5);
+  }
+
+  formatDateFull(date){
+    let fullDay;
+    switch(new Date(date).getDay()) {
+      case 0 : fullDay = "Sunday"; break;
+      case 1 : fullDay = "Monday"; break;
+      case 2 : fullDay = "Tuesday"; break;
+      case 3 : fullDay = "Wednesday"; break;
+      case 4 : fullDay = "Thursday"; break;
+      case 5 : fullDay = "Friday"; break;
+      case 6 : fullDay = "Saturday"; break;
+    }
+    return fullDay;
   }
 
   getData(observableInstance) {
@@ -40,7 +58,9 @@ export class WeatherPage {
     this.weatherAppService.setPostData(postObj);
     this.weatherAppService.customPsuedoSubscribe(observableInstance).subscribe((data)=>{
         // data passed in next comes here
+        
         this.data = data;
+        console.log(this.data);
         
         // initializing the days array
         this.days = [[]];
@@ -48,9 +68,14 @@ export class WeatherPage {
         for (var i = 0, j = 0; i < this.data.list.length; i++) {
           // current item
           let dayObj = {
+          "weather" : this.data.list[i].weather[0].description,
+          "icon" : APP_CONFIG.imgURL + this.data.list[i].weather[0].icon+'.png',
           "date" : this.data.list[i].dt_txt.split(" ")[0],
           "time" : this.formatTime(this.data.list[i].dt_txt.split(" ")[1]),
-          "temp" : this.data.list[i].main.temp
+          "temp" : this.data.list[i].main.temp,
+          "pressure" : this.data.list[i].main.pressure,
+          "humidity" : this.data.list[i].main.humidity,
+          "wind" : this.data.list[i].wind.speed
         }
         
         /* 
@@ -65,7 +90,7 @@ export class WeatherPage {
         this.days[j].push(dayObj);
       }
       // load map
-        this.changeDay(this.formatDate(this.data.list[0].dt_txt.split(" ")[0]), 0);
+      this.changeDay(this.formatDate(this.data.list[0].dt_txt.split(" ")[0]), 0, "Temperature");
       console.log(this.days);
     });
 
@@ -76,32 +101,67 @@ export class WeatherPage {
     this.getData('weatherDataObservableLatLng');
   }
   // on clicking the segments
-  changeDay(day, index) {
+  changeDay(day, index, segment) {
     this.daySelected = day;
 
-    let tempArr = this.days[index].map(item => item.temp);
+    let arr, title, text, name;
     let timeArr = this.days[index].map(item => item.time);
-
+    
+    switch (segment) {
+      case "Temperature" : {
+        arr = this.days[index].map(item => item.temp);
+        title = "Temperature Chart";
+        text = "Temperature in degree celcius",
+        name = "Temperature"
+      break;
+      }
+      case "Wind" : {
+        arr = this.days[index].map(item => item.wind);
+        title = "Wind Chart";
+        text = "Wind Speed in m/s",
+        name = "Wind Speed"
+      break;
+      }
+      case "Pressue" : {
+        arr = this.days[index].map(item => item.pressure);
+        title = "Pressue Chart";
+        text = "Pressue in hectopascals",
+        name = "Pressue"
+      break;
+      }
+      case "Humidity" : {
+        arr = this.days[index].map(item => item.humidity);
+        title = "Humidity Chart";
+        text = "Humidity %",
+        name = "Humidity"
+      break;
+      }
+    }
     this.myChart = HighCharts.chart('container', {
       chart: {
         type: 'line'
       },
       title: {
-        text: 'Temperature Chart'
+        text: title
       },
       xAxis: {
         categories: timeArr
       },
       yAxis: {
         title: {
-          text: 'Temperature in degree celcius'
+          text: text
         }
       },
       series: [{
-        name: 'Temperature',
-        data: tempArr
+        name: name,
+        data: arr
       }]
     });
+  }
+
+  changeSegment(segment){
+    this.segmentSelected = segment;
+    this.changeDay(this.formatDate(this.data.list[0].dt_txt.split(" ")[0]), 0, segment);
   }
 }
 

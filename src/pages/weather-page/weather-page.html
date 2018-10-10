@@ -1,23 +1,44 @@
 <ion-content padding>
   <!--title segments-->
-  <ion-segment [(ngModel)]="daySelected">
-    <ion-segment-button *ngFor="let day of days; let index = index" [value]="formatDate(day[0].date)" (click)="changeDay(formatDate(day[0].date), index)">
-      <span [innerHTML] = "formatDate(day[0].date)"></span>
+
+  <ion-segment [(ngModel)]="segmentSelected" class="wa-parent-segment">
+    <ion-segment-button *ngFor="let segment of segments; let index = index" [value]="segment" (click)="changeSegment(segment)">
+      <span [innerHTML] = "segment"></span>
     </ion-segment-button>
   </ion-segment>
 
-  <div [ngSwitch]="daySelected">
+  <div [ngSwitch]="segmentSelected">
     
-    <div *ngFor="let day of days">
-      <div *ngSwitchCase="formatDate(day[0].date)">
-        <ion-item>
-          <h2>{{formatDate(day[0].date)}}</h2>
-        </ion-item>
-      </div>
-    </div>
+    <ion-segment [(ngModel)]="daySelected">
+      <ion-segment-button *ngFor="let day of days; let index = index" [value]="formatDate(day[0].date)" (click)="changeDay(formatDate(day[0].date), index, segmentSelected)">
+        <span [innerHTML] = "formatDate(day[0].date)"></span>
+      </ion-segment-button>
+    </ion-segment>
 
-    <div id="container" style="display: block;"></div>
+    <div [ngSwitch]="daySelected">
+      
+      <div *ngFor="let day of days; let index = index">
+        <div *ngSwitchCase="formatDate(day[0].date)">
+
+          <div class="wa-city" [innerHTML]="data.city.name"></div>
+          <div class="wa-day-wrapper">
+            <span [innerHTML]="formatDateFull(day[0].date)"></span>
+            <span [innerHTML]="formatTime(day[0].time)"></span>
+          </div>
+ 
+          <div class="wa-weather-wrapper">
+            <img class="wa-icon" [src]= "day[0].icon"/>
+            <div class="wa-desc" [innerHTML]="day[0].weather"></div>
+          </div>
+        </div>
+      </div>
+
+      <div id="container" style="display: block;"></div>
+      
+    </div>
     
   </div>
+
+
 
 </ion-content>
