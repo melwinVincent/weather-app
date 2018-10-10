@@ -2,7 +2,7 @@
   <!--title segments-->
 
   <ion-segment [(ngModel)]="segmentSelected" class="wa-parent-segment">
-    <ion-segment-button *ngFor="let segment of segments; let index = index" [value]="segment" (click)="changeSegment(segment)">
+    <ion-segment-button *ngFor="let segment of segments; let index = index" [value]="segment" (click)="changeSegment(segment)" [ngClass]="{'wa-deactive' : !isChart}">
       <span [innerHTML] = "segment"></span>
     </ion-segment-button>
   </ion-segment>
@@ -17,28 +17,78 @@
 
     <div [ngSwitch]="daySelected">
       
-      <div *ngFor="let day of days; let index = index">
-        <div *ngSwitchCase="formatDate(day[0].date)">
+      <ion-grid>
+        <ion-row>
+          <ion-col>
+            <button class="wa-btn" ion-button type="button" (click)="toggleView()" [ngClass]="{'wa-active' : isChart}">
+              CHART
+            </button>
+          </ion-col>
+          <ion-col>
+            <button class="wa-btn" ion-button type="button" (click)="toggleView()" [ngClass]="{'wa-active' : !isChart}">
+              LIST
+            </button>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
 
-          <div class="wa-city" [innerHTML]="data.city.name"></div>
-          <div class="wa-day-wrapper">
-            <span [innerHTML]="formatDateFull(day[0].date)"></span>
-            <span [innerHTML]="formatTime(day[0].time)"></span>
-          </div>
- 
-          <div class="wa-weather-wrapper">
-            <img class="wa-icon" [src]= "day[0].icon"/>
-            <div class="wa-desc" [innerHTML]="day[0].weather"></div>
+      <div [hidden]="isChart">
+        <div *ngFor="let day of days; let index = index">
+          <div *ngSwitchCase="formatDate(day[0].date)">
+
+            <div *ngFor="let item of day; let index = index" class="wa-repeat-content">
+
+              <div class="wa-day-wrapper">
+                <span [innerHTML]="formatTime(item.time)"></span>
+              </div>
+    
+              <div class="wa-weather-wrapper">
+                <img class="wa-icon" [src]= "item.icon"/>
+                <div class="wa-desc" [innerHTML]="item.weather"></div>
+                <div class="wa-temp">
+                  <span [innerHTML]="item.temp"></span>
+                  <span class="wa-list-unit">celcius</span>
+                </div>
+              </div>
+
+              <ion-grid class="wa-list-grid">
+                <ion-row no-padding>
+                  <ion-col no-padding>
+                    <span class="wa-list-label"> Wind : </span>
+                    <span [innerHTML]="item.wind"></span>
+                    <span class="wa-list-unit">m/s</span>
+                  </ion-col>
+                  <ion-col no-padding>
+                    <span class="wa-list-label"> Humidity : </span>
+                    <span [innerHTML]="item.humidity"></span>
+                    <span class="wa-list-unit">%</span>
+                  </ion-col>
+                </ion-row>
+              </ion-grid>
+
+              <ion-grid class="wa-list-grid">
+                <ion-row no-padding>
+                  <ion-col no-padding col-6>
+                    <span class="wa-list-label"> Pressure : </span>
+                    <span [innerHTML]="item.pressure"></span>
+                    <span class="wa-list-unit">hpa</span>
+                  </ion-col>
+                </ion-row>
+              </ion-grid>
+
+            </div>
+            
           </div>
         </div>
       </div>
 
-      <div id="container" style="display: block;"></div>
-      
+      <div [hidden]="!isChart">
+        <div id="container" style="display: block;"></div>
+      </div>
+
     </div>
     
   </div>
-
 
 
 </ion-content>

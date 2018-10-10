@@ -13,6 +13,7 @@ export class WeatherPage {
   daySelected : string;
   segments : string[];
   segmentSelected : string;
+  isChart : boolean;
   // multi-dimensonal array to manage the data in each segment
   days : any;
   // for high charts
@@ -22,6 +23,7 @@ export class WeatherPage {
   constructor(private weatherAppService: WeatherAppService) {
     this.segments = ["Temperature", "Wind", "Pressue", "Humidity"];
     this.segmentSelected = "Temperature";
+    this.isChart = true;
   }
   // format the date into day for better UX
   formatDate(date){
@@ -162,6 +164,10 @@ export class WeatherPage {
   changeSegment(segment){
     this.segmentSelected = segment;
     this.changeDay(this.formatDate(this.data.list[0].dt_txt.split(" ")[0]), 0, segment);
+  }
+
+  toggleView() {
+    this.isChart = !this.isChart;
   }
 }
 

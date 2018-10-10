@@ -4,7 +4,12 @@ page-weather-page {
             &.segment-activated {
                 background: color($colors, primary, base);
                 color: color($colors, light, base);
+                &.wa-deactive {
+                    background: color($colors, light-I, base);
+                    color: color($colors, primary, base);
+                }
             }
+            
         }  
     }
     .wa-city {
@@ -25,11 +30,48 @@ page-weather-page {
             text-transform: capitalize;
             color: color($colors, color-III, base);
         }
+        .wa-temp {
+            display: inline-block;
+            vertical-align: middle;
+            padding: 0px 16px;
+            font-size: 18px;
+            color: color($colors, primary, base);
+            .wa-list-unit {
+                color: color($colors, color-I, base);
+                font-size: 12px;
+            }
+        }
     }
     .wa-day-wrapper {
-        padding: 4px 8px;
+        padding: 8px 8px 0px 8px;
         font-size: 18px;
-        color: color($colors, color-I, base);
+        color: color($colors, primary, base);
+        font-weight: bold;
     }
+    .wa-btn {
+        width: 100%;
+        background: color($colors, lightPrimary, base);
+        &.wa-active {
+           background: color($colors, primary, base);
+        }
+    }
+    .wa-list-grid {
+        color: color($colors, primary, base);
+        .wa-list-label {
+            color: color($colors, color-I, base);
+        }
+        .wa-list-unit {
+            color: color($colors, color-I, base);
+            font-size: 12px;
+        }
+    }
+    .wa-repeat-content {
+        background: color($colors, light, base);
+        border: 1px solid color($colors, light, base);
+        margin: 5px 0px;
+    }
+    .wa-repeat-content:nth-child(even){
+		background : color($colors, light-I, base);
+	}
     
 }
