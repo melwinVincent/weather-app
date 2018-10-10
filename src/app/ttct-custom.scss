@@ -1,0 +1,109 @@
+.ttct-service {
+    /********** font **********/
+    .F-32 {
+        font-size : 32px;
+    }
+    .F-16 {
+        font-size:  16px;
+    }
+    .F-10 {
+        font-size: 10px;
+    }
+    .F-12 {
+        font-size: 12px;
+    }
+
+    /********** padding **********/
+    .padding-5 {
+        padding : 5px !important;
+    }
+    .padding-2_5-10 {
+        padding:  2.5px 10px;
+    }
+    .padding-top-bottom-10 {
+        padding: 10px 0px;
+    }
+    .padding-5-10 {
+        padding: 5px 10px;
+    }
+    .padding-LR-5 {
+        padding: 0px 5px;
+    }
+    .P-8 {
+        padding : 8px;
+    }
+    .P-10 {
+        padding : 10px;
+    }
+    .P-8-32 {
+        padding : 8px 32px;
+    }
+    .P-8-16 {
+        padding : 8px 16px;
+    }
+    .PTB-8 {
+        padding: 8px 0px;
+    }
+
+    /********** margin **********/
+    .MTB-8 {
+        margin: 8px 0px;
+    }
+    .MTB-4 {
+        margin: 4px 0px;
+    }
+    .MTB-6 {
+        margin: 6px 0px;
+    }
+    .MR-6 {
+        margin-right: 6px;
+    }
+    .ML-6 {
+        margin-left: 6px;
+    }
+    .M-6 {
+        margin : 6px;
+    }
+    .MB-5 {
+        margin-bottom: 5px;
+    }
+    .MB-8 {
+        margin-bottom: 8px;
+    }
+    .MT-8 {
+        margin-top: 8px;
+    }
+
+    /********** width **********/
+    .W-100px {
+        width : 100px;
+    }
+
+    /********** height **********/
+    .H-100 {
+        height : 100% !important;
+    }
+
+    /********** font-colors **********/
+    .ttct-light-I {
+        color: color($colors, color-I, base);
+    }
+    .ttct-light-II {
+        color: color($colors, color-II, base);
+    }
+    .ttct-light-III {
+        color: color($colors, color-III, base);
+    }
+    .ttct-light-IV {
+        color: color($colors, color-IV, base);
+    }
+
+    /********** miscellaneous **********/
+    .C-999 {
+        font-size: 16px;
+        color : #999;
+    }    
+    .ttct-border-radius-8 {
+        border-radius: 8px;
+    }
+}

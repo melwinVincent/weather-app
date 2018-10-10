@@ -1,0 +1,493 @@
+#nav-id {
+    background: color($colors, light, base);
+    height: 100%;
+}
+.ttct-std-buttons {
+    text-align: center;
+    button {
+        width: 125px;
+        height: 44px;
+    }
+}
+.ttct-no-box-shadow {
+    box-shadow : none;
+    -webkit-box-shadow : none;
+}
+.back-button.show-back-button {
+    position: fixed;
+    z-index: 999;
+}
+.ttct-form {
+    .item {
+        padding: 0px;
+        .item-ios.item-block .item-inner {
+            padding: 0px;
+        }
+    }
+    .label {
+        margin: 0px;
+    }
+    .text-input-ios {
+        width: 100%;
+    }
+    .ttct-error-info {
+        bottom: 7px;
+    }
+}
+.ttct-force-center {
+    input {
+         text-align: center;
+    }
+}
+.ttct-lang-button-wrapper {
+    position: fixed;
+    top: 2px;
+    right: 8px;
+}
+.ttct-align-right {
+    text-align : right;
+}
+.ttct-app-icon {
+    width : 200px;
+    margin: auto;
+}
+.ttct-menu-btn-right {
+    position : absolute;
+    top : 6px;
+    right : 9px;
+    box-shadow: none;
+}
+.ttct-round-btn-right {
+    position: absolute;
+    top: 6px;
+    right: 6px;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    border-radius: 50%;
+    width: 36px;
+    height: 36px;
+    ion-icon {
+        font-size: 36px;
+    }
+    &.ttct-no-bg {
+        top:4px;
+        background: none;
+        ion-icon {
+            color : color($colors, primary, base);
+            font-size : 28px;
+        }
+    }
+    &.force-left {
+        right : auto;
+        left : 6px;
+    }
+}
+
+.ttct-logout-btn-left {
+    position : absolute;
+    top : 6px;
+    left : 16px;
+    box-shadow: none;
+}
+.ttct-lang-btn-right {
+    position : absolute;
+    top : 6px;
+    right : 64px;
+    box-shadow: none;
+}
+.ttct-app-side-menu-logo {
+    width : 150px;
+    margin: auto;
+    padding: 16px; 
+}
+.ttct-underline {
+    text-decoration: underline;   
+}
+.ttct-app-side-menu-content {
+    height: calc(100% - 118px);
+    top: 72px;
+    background: color($colors, light, base);
+}
+.ttct-side-menu-footer {
+    position: absolute;
+    height: 48px;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
+    background: color($colors, primary, base);
+    color: color($colors, light, base);
+    font-size: 24px;
+    ion-col {
+        padding : 8px;
+        ion-icon {
+            font-size: 24px;
+        }
+    }
+}
+.ttct-grid-buttons {
+    [ion-button] {
+        width : 100%;
+        font-size: 14px;
+    }
+    [icon-left] ion-icon, [icon-start] ion-icon {
+        font-size: 2em;
+    }
+    .ttct-button-label {
+        font-size: 14px;
+    }
+
+}
+.ttct-light-label {
+    color: color($colors, color-I, base);
+}
+.ttct-italics {
+    font-style: italic;
+}
+.ttct-round-button {
+    &.button {
+        border-radius: 50%;
+        height: 44px;
+        width: 44px;
+    }
+}
+
+.ttct-error-info {
+    position: absolute;
+    bottom: 4px;
+    right: 4px;
+    font-size: 28px;
+    color: color($colors, danger, base);
+    &.move {
+        right: 32px;
+    }
+}
+
+.ttct-info {
+    position: absolute;
+    bottom: 9px;
+    right: 4px;
+    font-size: 28px;
+    color: #aaa;
+}
+
+.ttct-biscuits {
+    background : color($colors, primary, base);
+    display: inline-block;
+    width: 32%;
+    padding: 8px;
+    margin: 0.667%;
+    border-radius: 2px;
+    color: #fff;
+}
+
+.ttct-float-right {
+    float: right;
+}
+
+.ttct-no-data {
+    padding: 5px 10px;
+    text-align: center;
+    color: #aaa;
+}
+
+.ttct-inline-block {
+    display: inline-block;
+}
+.ttct-relative {
+    position: relative;
+}
+.ttct-scroll-single-line {
+    overflow: overlay;
+    white-space: nowrap;
+    width: calc(100% - 14px);
+    height: 18px;
+}
+.ttct-no-padding {
+    padding : 0px;
+}
+.ttct-textarea {
+    color: #141414;
+    margin: -6px 0px;
+    background: #fcfcfc;
+}
+.ttct-item {
+    &.item-md {
+        padding-left:0px;
+    }
+    .label-md{
+        margin : 8px 8px 8px 0px;
+    }
+    &.item-has-focus .label-md[floating], &.item-input-has-focus .label-md[floating] {
+        margin : 8px 8px 8px 0px;
+    }
+    &.item-ios {
+        padding-left: 0px;
+    }
+}
+.ttct-light-bg {
+    background: #fff;
+}
+.ttct-relative {
+    position: relative;
+}
+.ttct-toast {
+    .toast-wrapper {
+        width:96%;
+        border-radius: 4px;
+        background: color($colors, primary, base);;
+    }
+}
+.ttct-rtl {
+    direction : rtl;
+}
+.ttct-center {
+    text-align : center;
+    .text-input {
+        text-align : center;
+    }
+}
+.ttct-scroll-line {
+    white-space: nowrap;
+    overflow: overlay;
+}
+.ttct-vertical-top {
+    vertical-align:top;
+}
+.ttct-icon {
+    display: inline-block;
+    font-size: 20px;
+    color: #aaa;
+    vertical-align: middle;
+}
+.ttct-label {
+    display: inline-block;
+    font-size: 14px;
+    color: #444;
+    vertical-align: middle;
+    padding: 5px;
+}
+.ttct-bold {
+    font-weight: bold;
+}
+.repeat-content {
+    background: #f8f8f8
+}
+.repeat-content:nth-child(even){
+    background : #fff;
+}
+.ios ion-nav > .ion-page > ion-content.statusbar-padding:first-child .scroll-content,
+.ios ion-nav > .ion-page > ion-header > ion-content.statusbar-padding:first-child .scroll-content,
+.ios ion-tab > .ion-page > ion-header > ion-content.statusbar-padding:first-child .scroll-content,
+.ios ion-tabs > .ion-page.tab-subpage > ion-header > ion-content.statusbar-padding:first-child .scroll-content,
+.ios ion-menu > .menu-inner > ion-content.statusbar-padding:first-child .scroll-content,
+.ios ion-menu > .menu-inner > ion-header > ion-content.statusbar-padding:first-child .scroll-content {
+    padding-top: 0px;
+}
+
+.tab-button[aria-selected=true] {
+    background: color($colors, primary, base);
+    color: #fff;
+    .tab-button-text {
+        color: #fff;
+        font-size: 16px;
+        font-weight: bold;
+    }
+}
+.ttct-service {
+    .tab-button-text {
+        font-size: 14px;
+    }
+    .cancel-details-wrapper {
+        text-align: left;
+        border: 1px solid #eee;
+        border-radius: 4px;
+    }
+    .cancel-text {
+        text-align: left;
+        font-weight: bold;
+        font-size: 14px;
+        padding: 5px;
+    }
+    .summary-details-wrapper {
+        text-align: left;
+        .ttct-label {
+            font-size : 12px;
+            &.ttct-alert-label {
+                font-weight: bold;
+                width : 110px;
+            }
+        }
+        .ttct-alert-value {
+            width: calc(100% - 116px);
+            white-space: nowrap;
+            overflow: overlay;
+        }
+        .ttct-alert-wrapper {
+            border: 1px solid #eee;
+            border-radius: 4px;
+            margin: 5px 0px;
+            padding : 5px;
+        }
+    }
+    .alert-wrapper {
+        width: 300px;
+        max-width: 300px;
+        padding: 0px 16px;
+        .alert-message {
+            padding : 0px;
+        }
+    }
+    .ttct-dummy-button {
+        width: 100%;
+        height: 100%;
+        font-size: 1.2em;
+        background: transparent;
+        padding: 0px;
+    }
+    .ttct-initial-text-align {
+        text-align: initial;
+    }
+}
+.ttct-header {
+    .toolbar-background {
+        background: color($colors, primary, base);
+    }
+    .toolbar-title { 
+        color: color($colors, light, base);
+    }
+    .back-button {
+        color: color($colors, light, base);
+    }
+    &.ttct-modal {
+        .toolbar-background {
+            background: color($colors, light, base);
+        }
+        .toolbar-title { 
+            color: color($colors, primary, base);
+            font-size: 16px;
+        }
+        .back-button {
+            color: color($colors, light, base);
+        }
+    }
+}
+.ttct-pseudo-button {
+    position: relative;
+    padding :16px;
+    a {
+        color : color($colors, color-IV, base);
+    }
+    border: 1px solid color($colors, light, base);
+    border-radius: 4px;
+    ion-icon {
+        position: absolute;
+        right: 12px;
+        top: 18px;
+    }
+}
+.ttct-service {
+    .ttct-tabs {
+        .tabbar {
+            top: 8px;
+            width: calc(100% - 16px);
+            margin-left: 8px;
+        }
+    }
+    
+    .tab-button[aria-selected=true] {
+        background: color($colors, light, base);
+        .tab-button-icon {
+            color : color($colors, primary, base);
+        }
+        .tab-button-text {
+            color : color($colors, primary, base);
+            font-size: 12px;
+            font-weight: bold;
+        }
+    }
+    .tab-button {
+        color : color($colors, color-IV, base);
+    }
+    /*
+    ion-modal {
+        width: calc(100% - 16px);
+        height: calc(100% - 232px);
+        margin-left: 8px;
+        margin-top: 144px;
+        border: 1px solid color($colors, color-V, base);
+        border-radius: 8px;
+    }
+    */
+    ion-modal {
+        .modal-wrapper {
+             background: rgba(0,0,0,0.5);
+        }
+    }
+    .ttct-pseudo-toolbar {
+        background: color($colors, light, base);
+        &.title {
+            padding: 16px;
+            .title-ios {
+                color : color($colors, primary, base);
+                font-size: 16px;
+                font-weight: 500;
+            }
+        }
+        .col.ttct-pseudo-btn {
+            &.ttct-left-btn {
+                border-right: 1px solid color($colors, color-V, base);
+            }
+            &.ttct-right-btn {
+                border-left: 1px solid color($colors, color-V, base);
+            }
+        }
+
+        &.footer {
+            .button {
+                padding: 16px;
+                width: 100%;
+                height: auto;
+                box-shadow: none;
+                font-size: 15px;
+                background: none;
+                color: color($colors, primary, base);
+                margin: 0;
+            }
+            &.primary {
+                .button {
+                    background: color($colors, primary, base);
+                    color: color($colors, light, base);
+                }
+            }
+        }
+    }
+    .ttct-primary-color{
+        color: color($colors, primary, base);
+    } 
+    .ttct-italics {
+        font-style: italic;
+    }
+    .ttct-pseudo-disabled-button {
+        opacity: .5;
+    }
+    .ttct-error-border {
+        border: 1px solid red;
+        margin: 2px;
+        border-radius: 2px;
+    }
+    .ttct-rotate-180 {
+        transform: rotate(180deg);
+    }
+}
+
+.ttct-service {
+    .platform-android {
+        .action-sheet-group-cancel {
+            background: color($colors, light, base);
+            .button-inner {
+                color : color($colors, primary, base);
+            }
+        }
+    }
+}
+

@@ -1,0 +1,56 @@
+.ttct-service {
+    page-details {
+        .ttct-pseudo-toolbar {
+            &.ttct-primary-bg {
+                background: color($colors, primary, base);
+                .title-ios {
+                    color: color($colors, light, base);
+                }
+            }
+        }
+        .ttct-round-btn-right.ttct-no-bg ion-icon {
+            color : color($colors, light, base);
+        }
+        .ttct-title-icon-wrapper {
+            display: inline-block;
+            width : 28px;
+            vertical-align: middle;
+            position: relative;
+            ion-icon {
+                font-size: 26px;
+                color: color($colors, primary, base);
+            }
+        }
+        .ttct-property-wrapper {
+            display: inline-block;
+            width : calc(100% - 32px);
+            vertical-align: middle;
+            color : color($colors, primary, base);
+            font-size: 16px;
+            padding: 4px;
+            &.ttct-initial-color {
+                color: color($colors, color-III, base);
+                padding: 4px;
+            }
+        }
+        .row {
+            padding : 2px;
+        }
+        .ttct-req-description {
+            padding: 8px 16px;
+            .ttct-textarea {
+                border-radius: 8px;
+            }
+        }
+        .ttct-details-button {
+            width: 100%;
+            background: color($colors, light, base);
+            color : color($colors, primary, base);
+        }
+
+        .ttct-pseudo-toolbar.footer .button {
+            background:  color($colors, primary, base);
+            color: color($colors, light, base);
+        }
+    }
+}

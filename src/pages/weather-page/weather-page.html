@@ -1,0 +1,23 @@
+<ion-content padding>
+  <!--title segments-->
+  <ion-segment [(ngModel)]="daySelected">
+    <ion-segment-button *ngFor="let day of days; let index = index" [value]="formatDate(day[0].date)" (click)="changeDay(formatDate(day[0].date), index)">
+      <span [innerHTML] = "formatDate(day[0].date)"></span>
+    </ion-segment-button>
+  </ion-segment>
+
+  <div [ngSwitch]="daySelected">
+    
+    <div *ngFor="let day of days">
+      <div *ngSwitchCase="formatDate(day[0].date)">
+        <ion-item>
+          <h2>{{formatDate(day[0].date)}}</h2>
+        </ion-item>
+      </div>
+    </div>
+
+    <div id="container" style="display: block;"></div>
+    
+  </div>
+
+</ion-content>

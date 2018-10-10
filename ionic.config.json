@@ -1,0 +1,12 @@
+{
+  "name": "helloWorld-ionic2",
+  "app_id": "",
+  "v2": true,
+  "typescript": true,
+  "proxies": [
+    {
+      "path": "/weatherapp/api/",
+      "proxyUrl": "https://nodetodomel.herokuapp.com/api/"
+    }
+  ]
+}

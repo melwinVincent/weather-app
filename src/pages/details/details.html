@@ -1,0 +1,153 @@
+<ion-header class="ttct-header ttct-modal">
+  <div class="ttct-pseudo-toolbar title ttct-primary-bg">
+    <div class="title-ios ttct-center" [innerHTML] = "'MY_REQUEST.details' | translate"></div>
+  </div>
+  <button ion-button class="ttct-round-btn-right ttct-no-bg" (click)="closeModal()" icon-only>
+      <ion-icon name="ios-close"></ion-icon>
+  </button>
+</ion-header>
+
+<ion-content padding>
+  <!--request ID-->
+  <ion-grid no-padding>
+    <ion-row>
+      <ion-col col-5>
+        <div class="ttct-title-icon-wrapper">
+            <ion-icon name="ios-ionic"></ion-icon>
+        </div>
+        <div class="ttct-property-wrapper">
+            <span [innerHTML]="'MY_REQUEST.requestID' | translate"></span>
+        </div>
+      </ion-col>
+      <ion-col>
+        <div class="ttct-property-wrapper ttct-initial-color">
+          <span> : </span>
+          <span [innerHTML]="navData.data.reqData[0].service_request_id"></span>
+        </div>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+  <!--service type-->
+  <ion-grid no-padding>
+    <ion-row>
+      <ion-col col-5>
+        <div class="ttct-title-icon-wrapper">
+            <ion-icon name="ios-construct"></ion-icon>
+        </div>
+        <div class="ttct-property-wrapper">
+            <span [innerHTML]="'REQUEST.serviceTypeLabel' | translate"></span>
+        </div>
+      </ion-col>
+      <ion-col>
+        <div class="ttct-property-wrapper ttct-initial-color">
+          <span> : </span>
+          <span [innerHTML]="navData.data.reqData[0].service_name"></span>
+        </div>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+  <!--description-->
+  <ion-grid no-padding>
+    <ion-row>
+      <ion-col col-5>
+        <div class="ttct-title-icon-wrapper">
+            <ion-icon name="ios-clipboard"></ion-icon>
+        </div>
+        <div class="ttct-property-wrapper">
+            <span [innerHTML]="'REQUEST.description' | translate"></span>
+        </div>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+  <div class="ttct-req-description">
+    <ion-textarea class="ttct-textarea" [(ngModel)]="navData.data.reqData[0].description" rows="4" readonly="true"></ion-textarea>
+  </div>
+  <!--required date-->
+  <ion-grid no-padding MTB-4>
+    <ion-row>
+      <ion-col>
+        <div class="ttct-title-icon-wrapper">
+            <ion-icon name="md-calendar"></ion-icon>
+        </div>
+        <div class="ttct-property-wrapper ttct-initial-color">
+            <span [innerHTML]="navData.data.reqData[0].required_date"></span>
+        </div>
+      </ion-col>
+      <ion-col>
+        <div class="ttct-title-icon-wrapper">
+            <ion-icon name="md-timer"></ion-icon>
+        </div>
+        <div class="ttct-property-wrapper ttct-initial-color">
+            <span [innerHTML]="navData.data.reqData[0].time_mode"></span>
+        </div>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+  
+
+  <button class="ttct-details-button MTB-6" ion-button type="button" (click)="showLocation()">
+    <span [innerHTML]="'MY_REQUEST.location' | translate"></span>
+  </button>
+
+  <button class="ttct-details-button MTB-6" ion-button type="button" (click)="showImages()">
+    <span [innerHTML]="'MY_REQUEST.images' | translate"></span>
+  </button>
+
+  <!--contact name-->
+  <ion-grid no-padding>
+    <ion-row>
+      <ion-col col-5>
+        <div class="ttct-title-icon-wrapper">
+            <ion-icon name="ios-person"></ion-icon>
+        </div>
+        <div class="ttct-property-wrapper">
+            <span [innerHTML]="'MY_REQUEST.contactName' | translate"></span>
+        </div>
+      </ion-col>
+      <ion-col>
+        <div class="ttct-property-wrapper ttct-initial-color">
+          <span> : </span>
+          <span [innerHTML]="navData.data.reqData[0].contact_name"></span>
+        </div>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+  <!--GSM-->
+  <ion-grid no-padding>
+    <ion-row>
+      <ion-col col-5>
+        <div class="ttct-title-icon-wrapper">
+            <ion-icon name="md-call"></ion-icon>
+        </div>
+        <div class="ttct-property-wrapper">
+            <span [innerHTML]="'MY_REQUEST.contactGSM' | translate"></span>
+        </div>
+      </ion-col>
+      <ion-col>
+        <div class="ttct-property-wrapper ttct-initial-color">
+          <span> : </span>
+          <span [innerHTML]="navData.data.reqData[0].contact_number"></span>
+        </div>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+</ion-content>
+<ion-footer>
+  <div class="ttct-pseudo-toolbar footer ttct-border-radius-8">
+  <ion-grid no-padding>
+    <ion-row>
+      <ion-col class="ttct-pseudo-btn ttct-left-btn">
+        <button ion-button (click)="editRequest()">
+          {{'REQUEST.updateRequest' | translate}}
+        </button>
+      </ion-col>
+      <ion-col class="ttct-pseudo-btn ttct-right-btn">
+        <button ion-button (click)="deleteRequest()">
+          {{'MY_REQUEST.deleteRequest' | translate}}
+        </button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+  </div>
+</ion-footer>

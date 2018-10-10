@@ -1,0 +1,119 @@
+.ttct-service.ar {
+    .ttct-force-rtl {
+        .text-input {
+            direction: rtl;
+        }
+    }
+    .ttct-lang-button-wrapper {
+        right : auto;
+        left : 8px;
+    }
+    .ttct-align-right {
+        text-align: left;
+    }
+    .ttct-menu-btn-right {
+        right : auto;
+        left : 9px;
+    }
+    .ttct-logout-btn-left {
+        left : auto;
+        right: 16px
+    }
+    .ttct-lang-btn-right {
+        right : auto;
+        left : 64px;
+    }
+    .ttct-initial-direction {
+        direction: ltr;
+    }
+    .ttct-error-info {
+        right: auto;
+        left : 4px;
+    }
+    .ttct-info {
+        right: auto;
+        left: 4px;
+    }
+    page-compose {
+        .message-count {
+            right: auto;
+            left: 16px;
+        }
+        .ttct-close-button {
+            right: auto;
+            left: -14px;
+        }
+    }
+    page-contacts-list {
+        .ttct-check-button{
+            right: auto;
+            left: 2px;
+        }
+    }
+    page-groups-select {
+        .ttct-check-button {
+            right: auto;
+            left: 2px;
+        }
+    }
+    page-home {
+        .ttct-footer-value{
+            right: auto;
+            left: 13px;
+        }
+    }
+    page-phone-contacts {
+        .ttct-check-button {
+            right: auto;
+            left: 2px;
+        }
+    }
+    page-todos {
+        .todo-item {
+            .todo-delete {
+                left: 4px;
+                right: auto;
+            }
+            .todo-status {
+                left: 4px;
+                right: auto;
+            }
+        }
+    }
+    page-my-requests {
+        .ttct-lock-btn {
+            right: auto;
+            left: 0px;
+        }
+    }
+    page-responses {
+        .ttct-back-btn { 
+            right : 0px;
+            left: auto;
+        }
+        .ttct-action-btns {
+            right : auto;
+            left : 0px;
+        }
+        .ttct-location-btn {
+            right: auto;
+            left : 4px;
+        }
+        .ttct-testimonials-scroll {
+            .scroll-content {
+                padding: 8px 8px 8px 16px;
+                .ttct-testimonial-wrapper .ttct-testimonial-date {
+                    right: auto;
+                    left : 6px;
+                }
+            }
+        }
+    }
+    .ttct-pseudo-button ion-icon {
+        right: auto;
+        left: 12px;
+    }
+    .alert-tappable {
+        padding-right: 16px;
+    }
+}

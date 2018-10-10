@@ -1,0 +1,38 @@
+<!--content is the reference to  ion-nav-->
+<ng-template #ttctSideMenuContent>
+
+  <div class="ttct-app-side-menu-logo">
+    <img id="logo" [src]="'./assets/imgs/logo.png'" alt="Company logo" />
+  </div>
+
+  <ion-content class="ttct-app-side-menu-content">
+    <ion-list>
+      <button menuClose ion-item *ngFor="let page of menuPages" (click)="openPage(page)">
+        {{page}}
+      </button>
+    </ion-list>
+  </ion-content>
+
+  <ion-row align-items-center class="ttct-side-menu-footer">
+    <ion-col >
+        <ion-icon name="logo-facebook"></ion-icon>
+    </ion-col>
+    <ion-col>
+        <ion-icon name="logo-twitter"></ion-icon>
+    </ion-col>
+    <ion-col>
+        <ion-icon name="logo-youtube"></ion-icon>
+    </ion-col>
+  </ion-row>
+  
+</ng-template>
+
+<ion-menu *ngIf="language === 'en'" type="overlay" side="right" [content]="content">
+  <ng-container *ngTemplateOutlet="ttctSideMenuContent"></ng-container>
+</ion-menu>
+
+<ion-menu  *ngIf="language === 'ar'" type="overlay" side="left" [content]="content">
+    <ng-container *ngTemplateOutlet="ttctSideMenuContent"></ng-container>
+</ion-menu>
+<!--content (#content) is the reference to the ionic component ion-nav, use this reference above in ion-menu to set it's [content]-->
+<ion-nav id="nav-id" #content [root]="rootPage"></ion-nav>

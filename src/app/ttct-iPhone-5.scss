@@ -1,0 +1,19 @@
+/* custom styles for iPhone-5/SE */
+.ttct-service {
+    @media screen and (device-aspect-ratio: 40/71) {
+        .tab-button[aria-selected=true] {
+            background: color($colors, light, base);
+            .tab-button-icon {
+                color : color($colors, primary, base);
+            }
+            .tab-button-text {
+                color : color($colors, primary, base);
+                font-size: 11px;
+                font-weight: bold;
+            }
+        }
+        .tab-button-text {
+            font-size: 11px;
+        }
+    }
+}
