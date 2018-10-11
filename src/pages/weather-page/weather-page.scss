@@ -23,9 +23,9 @@ page-weather-page {
         font-size: 24px;
     }
     .wa-city-details {
-        color: color($colors, primary, base);
+        color: color($colors, secondary, base);
         font-size: 18px;
-        border-bottom: 1px solid color($colors, lightPrimary, base);;
+        border-bottom: 1px solid color($colors, secondary, base);;
         padding: 5px;
         margin: 2px;
     }
