@@ -59,6 +59,10 @@
         </ion-row>
       </ion-grid>
 
+      <div *ngIf="data" class="wa-city-details">
+        <span><ion-icon name="md-locate"></ion-icon></span> <span [innerHTML]="data.city.name"></span>, <span [innerHTML]="data.city.country"></span>
+      </div>
+
       <div [hidden]="isChart">
         <div *ngFor="let day of days; let index = index">
           <div *ngSwitchCase="formatDate(day[0].date)">
