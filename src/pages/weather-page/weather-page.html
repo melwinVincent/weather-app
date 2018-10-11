@@ -1,6 +1,33 @@
 <ion-content padding>
-  <!--title segments-->
 
+    <ion-grid>
+        <ion-row>
+          <ion-col col-9>
+            <ion-item>
+              <ion-label> <ion-icon name="ios-locate-outline"></ion-icon></ion-label>
+              <ion-input my-input placeholder = "Enter the city name" type="text"  [(ngModel)]="city" minlength="2" maxlength="50"></ion-input>
+            </ion-item>
+          </ion-col> 
+          <ion-col col-3 class="ttct-center">
+            <button [disabled]="!city" color="secondary" ion-button type="button" (click)="getCityData(city)">
+              Submit
+            </button>
+          </ion-col>
+        </ion-row>
+        <div class="wa-OR">OR</div>
+        <ion-row>
+          <ion-col>
+            <button class="wa-btn-100" ion-button type="button" (click)="opneMapModal()">
+              CHOOSE FROM MAP
+            </button>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+
+<div *ngIf="!days" class="wa-mask">
+  <!--dummy mask-->
+</div>
+  <!--title segments-->
   <ion-segment [(ngModel)]="segmentSelected" class="wa-parent-segment">
     <ion-segment-button *ngFor="let segment of segments; let index = index" [value]="segment" (click)="changeSegment(segment)" [ngClass]="{'wa-deactive' : !isChart}">
       <span [innerHTML] = "segment"></span>

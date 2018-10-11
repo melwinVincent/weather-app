@@ -1,15 +1,6 @@
 <ion-header class="ttct-header ttct-modal">
   <div class="ttct-pseudo-toolbar title ttct-border-radius-8">
-    <div *ngIf="navData.isDraggable; else notDraggable" class="title-ios ttct-center" [innerHTML] = "'REQUEST.dragMarker' | translate"></div>
-    <ng-template #notDraggable>
-      <div *ngIf="navData.isBASE; else notBASE" class="title-ios ttct-center" [innerHTML] = "'REQUEST.regLoc' | translate"></div>
-      <ng-template #notBASE>
-        <div *ngIf="navData.label; else currentLoc" class="title-ios ttct-center" [innerHTML] = "navData.label"></div>
-        <ng-template #currentLoc>
-          <div class="title-ios ttct-center" [innerHTML] = "'REQUEST.currentLoc' | translate"></div>
-        </ng-template>
-     </ng-template>
-    </ng-template>
+    <div class="title-ios ttct-center">Pin location</div>
   </div>
 </ion-header>
 <ion-content padding class="ttct-border-radius-8">
@@ -22,12 +13,12 @@
     <ion-row>
       <ion-col class="ttct-pseudo-btn ttct-left-btn">
         <button ion-button (click)="closeModal(true)">
-          {{'COMMON.CLOSE' | translate}}
+          CLOSE
         </button>
       </ion-col>
       <ion-col class="ttct-pseudo-btn ttct-right-btn">
         <button ion-button (click)="closeModal(false)">
-          {{'COMMON.OK' | translate}}
+          SET
         </button>
       </ion-col>
     </ion-row>

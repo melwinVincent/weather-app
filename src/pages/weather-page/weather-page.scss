@@ -73,5 +73,24 @@ page-weather-page {
     .wa-repeat-content:nth-child(even){
 		background : color($colors, light-I, base);
 	}
+    .wa-OR {
+        text-align: center;
+        color: color($colors, primary, base);
+        font-size: 18px;
+    }
+    .wa-btn-100 {
+        width: 100%;
+    }
+    .wa-disable {
+        opacity: .5;
+    }
+    .wa-mask {
+        position: absolute;
+        opacity: .5;
+        width: 100%;
+        z-index: 999;
+        height: 100%;
+        background: color($colors, light-I, base);
+    }
     
 }
