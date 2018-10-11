@@ -1,29 +1,43 @@
 <ion-content padding>
-
-    <ion-grid class="wa-input-box">
+  <form [formGroup]="waFormGroup" class="ttct-form P-8-32" (ngSubmit)="getCityData(city)" #waForm="ngForm">
+    <ion-grid>
         <ion-row>
           <ion-col col-9>
-            <ion-item>
-              <ion-label> <ion-icon name="ios-locate-outline"></ion-icon></ion-label>
-              <ion-input my-input placeholder = "Enter the city name" type="text"  [(ngModel)]="city" minlength="2" maxlength="50"></ion-input>
-            </ion-item>
+            <div class="ttct-relative">
+              <ion-item>
+                <ion-label> <ion-icon name="ios-locate-outline"></ion-icon></ion-label>
+                <ion-input my-input placeholder = "Enter the city name" type="text"  [(ngModel)]="city" formControlName="city" minlength="2" maxlength="25"></ion-input>
+              </ion-item>
+              <ion-icon *ngIf="waFormGroup.controls.city.errors && waFormGroup.controls.city.errors.required && waFormGroup.controls.city.dirty" 
+              name="information-circle" class="ttct-error-info"
+              (click)="toast('This field is required')"></ion-icon>
+              <ion-icon *ngIf="waFormGroup.controls.city.errors && waFormGroup.controls.city.errors.minlength && waFormGroup.controls.city.dirty" 
+              name="information-circle" class="ttct-error-info"
+              (click)="toast('should be more than 2 characters')"></ion-icon>
+              <ion-icon *ngIf="waFormGroup.controls.city.errors && waFormGroup.controls.city.errors.maxlength && waFormGroup.controls.city.dirty" 
+              name="information-circle" class="ttct-error-info"
+              (click)="toast('should be less than 25 characters')"></ion-icon>
+              <ion-icon *ngIf="waFormGroup.controls.city.errors && waFormGroup.controls.city.errors.pattern && waFormGroup.controls.city.dirty" 
+              name="information-circle" class="ttct-error-info"
+              (click)="toast('Please enter valid characters')"></ion-icon>
+            </div>
           </ion-col> 
           <ion-col col-3 class="ttct-center">
-            <button [disabled]="!city" color="secondary" ion-button type="button" (click)="getCityData(city)">
+            <button [disabled]="!waFormGroup.valid" color="secondary" ion-button type="submit">
               Submit
             </button>
           </ion-col>
         </ion-row>
-        <div class="wa-OR">OR</div>
+        <!--<div class="wa-OR">OR</div>
         <ion-row>
           <ion-col>
             <button class="wa-btn-100" ion-button type="button" (click)="opneMapModal()">
               CHOOSE FROM MAP
             </button>
           </ion-col>
-        </ion-row>
+        </ion-row>-->
       </ion-grid>
-
+  </form>
 <div *ngIf="!days" class="wa-mask">
   <!--dummy mask-->
 </div>

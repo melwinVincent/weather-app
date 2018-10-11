@@ -1,8 +1,10 @@
 import { Component } from '@angular/core';
-import { IonicPage, ModalController, Modal } from 'ionic-angular';
+import { IonicPage, ModalController, Modal, Events } from 'ionic-angular';
 import { WeatherAppService } from '../../services/weather.app.services';
 import * as HighCharts from 'highcharts';
 import { APP_CONFIG } from '../../app/app.config';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { VALIDATION_CONFIG } from '../../app/app.validation';
 @IonicPage()
 @Component({
   selector: 'page-weather-page',
@@ -22,11 +24,37 @@ export class WeatherPage {
   myChart : any;
   // to store the return data from the weather map api
   data : any;
-  constructor(private weatherAppService: WeatherAppService, private modalCtrl : ModalController) {
+  waFormGroup: FormGroup;
+  constructor(private weatherAppService: WeatherAppService, 
+    private modalCtrl : ModalController, 
+    private formBuilder : FormBuilder,
+    private events : Events) {
+
     this.segments = ["Temperature", "Wind", "Pressue", "Humidity"];
     this.segmentSelected = "Temperature";
     this.isChart = true;
   }
+
+  //called after the constructor and called  after the first ngOnChanges() 
+  ngOnInit(){
+    // for validation
+    this.waFormGroup = this.formBuilder.group(
+      {
+        city : ['', Validators.compose([
+          Validators.required,
+          Validators.minLength(2),
+          Validators.maxLength(25),
+          Validators.pattern(VALIDATION_CONFIG.name)
+          ])]
+      }
+    );
+  }
+
+  // for toasting
+  toast(msg:string) {
+    this.events.publish('toast', msg);
+  }
+
   // format the date into day for better UX
   formatDate(date){
     return new Date(date).toString().split(" ")[0];
