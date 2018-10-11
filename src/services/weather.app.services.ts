@@ -1,7 +1,7 @@
 import {Injectable} from '@angular/core';
 import { HttpClient, HttpHeaders  } from '@angular/common/http';
 import { Observable } from 'rxjs/Observable';
-import { LoadingController, Loading } from 'ionic-angular';
+import { LoadingController, Loading, Events } from 'ionic-angular';
 import { APP_CONFIG } from '../app/app.config';
 @Injectable()
 export class WeatherAppService {
@@ -33,7 +33,8 @@ export class WeatherAppService {
 
     constructor(
          private http: HttpClient, 
-         private loadingCtrl: LoadingController){
+         private loadingCtrl: LoadingController, 
+         private events : Events){
         // initialize headersInstance
         this.headersInstance = new HttpHeaders().set('Content-Type', 'application/json')
         
@@ -80,7 +81,7 @@ export class WeatherAppService {
                 this.removeObserver('weatherDataObserverCity');
                 this.loading.dismiss();
                 console.log("error");
-                alert("Can't find this location")
+                this.toast("Can't find this location ! Please try again.");
             })
         });
 
@@ -121,5 +122,10 @@ export class WeatherAppService {
 
     hideLoading() {
         this.loading.dismiss()
+    }
+
+    // for toasting
+    toast(msg:string) {
+        this.events.publish('toast', msg);
     }
 }

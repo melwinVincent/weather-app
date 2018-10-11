@@ -12,6 +12,11 @@ page-weather-page {
             
         }  
     }
+    .wa-input-box {
+        border: 1px solid color($colors, primary, base);
+        border-radius: 4px;
+        margin: 8px 0px 24px 0px;
+    }
     .wa-city {
         color: color($colors, primary, base);
         padding: 16px 8px 0px 8px;
