@@ -22,7 +22,6 @@ If you haven't installed ionic and cordova , run these commands
 
 ```
 npm install cordova ionic -g
-
 ```
 
 **Clone the project and checkout to the branch 'master'**
@@ -33,35 +32,30 @@ Once you clone this repository, run this command on your terminal to install all
 
 ```
 npm install
-
 ```
 
 You can launch webapp by running the commad 
 
-````
+```
 ionic serve
-
 ```
 
 ## To Install cordova plugin Dependencies
 
 Run these commands on your terminal to add a platform and install all needed puglins:
 
-for android
+### for android
 
 ```
 cordova platform add android
 ionic state restore
-
 ```
 
-for iOS
+### for iOS
 
 ```
 cordova platform add iOS
 ionic state restore
-
 ```
-
 
 
